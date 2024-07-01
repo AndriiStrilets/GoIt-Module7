@@ -7,6 +7,8 @@ public class WordSpliterTest {
         WordSplitter wordSplitter = new WordSplitter();
         String[] words = wordSplitter.split("Hello       world");
         System.out.println(Arrays.toString(words));
+        System.out.println("New commit");
+
     }
 }
 class WordSplitter {

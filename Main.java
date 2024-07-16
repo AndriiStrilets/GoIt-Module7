@@ -4,14 +4,22 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String firstName = "Andrii";
-        byte[] bytes = firstName.getBytes(StandardCharsets.UTF_8);
-        System.out.println(Arrays.toString(bytes));
-        String parseName = new String(bytes);
-        System.out.println("parseName = " + parseName);
-        String hello = "Hello";
-        byte[] helloArray = hello.getBytes();
-        System.out.println(Arrays.toString(helloArray));
+        int[] arr = {11, 3, 2, 89, 54, 4};
 
+        boolean isSorted = false;
+        int buf;
+        while (!isSorted) {
+            isSorted = true;
+            for(int i = 0; i < arr.length - 1; i++) {
+                if(arr[i] > arr[i+1]) {
+                    isSorted = false;
+
+                    buf = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = buf;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }

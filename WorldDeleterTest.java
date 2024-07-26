@@ -19,26 +19,43 @@ public class WorldDeleterTest {
         System.out.println(wordDeleter.remove("objiqono taizdop zawofu", new String[] {"zawofu"}));
     }
 }
-
+// my code
+//class WordDeleter {
+//    public String remove(String phrase, String[] words) {
+//        String s = String.join(" ", words);
+//        String[] a = s.split(" ");
+//        String[] newPhrase = phrase.split("\\s+");
+//
+//        String out = "";
+//        for (int j = 0; j < newPhrase.length; j++) {
+//            for (int i = 0; i < a.length; i++) {
+//                if (newPhrase[j].contentEquals(a[i])) {
+//                    newPhrase[j] = " ";
+//                    out = String.join(" ", newPhrase).trim().replaceAll("\\s+", " ");
+//                }
+//            }
+//        }
+//        return out;
+//    }
+//}
+// mentor code
 class WordDeleter {
-    public String remove(String phrase, String[] words) {
-        String s = String.join(" ", words);
-        String[] a = s.split(" ");
-        String[] newPhrase = phrase.split("\\s+");
+public static String remove(String phrase, String[] words) {
+    StringBuilder result = new StringBuilder();
 
-        String out = "";
-        for (int j = 0; j < newPhrase.length; j++) {
-            for (int i = 0; i < a.length; i++) {
-                if (newPhrase[j].contentEquals(a[i])) {
-                    newPhrase[j] = " ";
-                    out = String.join(" ", newPhrase).trim().replaceAll("\\s+", " ");
-                }
+    matchWordLoop: // name of loop to specify break
+    for (String phraseWord : phrase.split(" ")) {
+        for (String word : words) {
+            if (word.equals(phraseWord)) {
+                continue matchWordLoop;
             }
         }
-        return out;
+        result.append(phraseWord).append(" ");
     }
-}
 
+    return result.toString().trim();
+}
+}
 
 //class WordDeleter {
 //    public String remove(String phrase, String[] words) {

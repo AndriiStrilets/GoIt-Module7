@@ -8,7 +8,6 @@ public class ATM {
         int counter = 0;
         int[] numbers = new int[]{1, 2, 5, 10, 20, 50, 100, 200, 500};
         int i = numbers.length;
-        //for (int i = numbers.length - 1; i > 0; i--) {
 
         while (i > 0) {
             i--;
